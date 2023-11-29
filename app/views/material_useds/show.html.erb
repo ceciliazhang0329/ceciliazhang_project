@@ -1,0 +1,86 @@
+<div>
+  <div>
+    <h1>
+      Material used #<%= @the_material_used.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/material_useds">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_material_used/<%= @the_material_used.id %>">
+          Delete material used
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Idea
+      </dt>
+      <dd>
+        <%= @the_material_used.idea_id %>
+      </dd>
+
+      <dt>
+        Material
+      </dt>
+      <dd>
+        <%= @the_material_used.material_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_material_used.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_material_used.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit material used
+    </h2>
+
+    <form action="/modify_material_used/<%= @the_material_used.id %>"  method="post" >
+      <div>
+        <label for="idea_id_box">
+          Idea
+        </label>
+
+        <input type="text" id="idea_id_box" name="query_idea_id" value="<%= @the_material_used.idea_id %>">
+      </div>
+
+      <div>
+        <label for="material_id_box">
+          Material
+        </label>
+
+        <input type="text" id="material_id_box" name="query_material_id" value="<%= @the_material_used.material_id %>">
+      </div>
+
+      <button>
+        Update material used
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

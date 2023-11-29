@@ -1,0 +1,131 @@
+<div>
+  <div>
+    <h1>
+      Idea #<%= @the_idea.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/ideas">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_idea/<%= @the_idea.id %>">
+          Delete idea
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Idea name
+      </dt>
+      <dd>
+        <%= @the_idea.idea_name %>
+      </dd>
+
+      <dt>
+        Description
+      </dt>
+      <dd>
+        <%= @the_idea.description %>
+      </dd>
+
+      <dt>
+        Idea image
+      </dt>
+      <dd>
+        <%= @the_idea.idea_image %>
+      </dd>
+
+      <dt>
+        Post status
+      </dt>
+      <dd>
+        <%= @the_idea.post_status %>
+      </dd>
+
+      <dt>
+        Likes count
+      </dt>
+      <dd>
+        <%= @the_idea.likes_count %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_idea.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_idea.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit idea
+    </h2>
+
+    <form action="/modify_idea/<%= @the_idea.id %>"  method="post" >
+      <div>
+        <label for="idea_name_box">
+          Idea name
+        </label>
+
+        <input type="text" id="idea_name_box" name="query_idea_name" value="<%= @the_idea.idea_name %>">
+      </div>
+
+      <div>
+        <label for="description_box">
+          Description
+        </label>
+
+        <input type="text" id="description_box" name="query_description" value="<%= @the_idea.description %>">
+      </div>
+
+      <div>
+        <label for="idea_image_box">
+          Idea image
+        </label>
+
+        <input type="text" id="idea_image_box" name="query_idea_image" value="<%= @the_idea.idea_image %>">
+      </div>
+
+      <div>
+        <input type="checkbox" id="post_status_box" name="query_post_status" value="1" <%= "checked" if @the_idea.post_status %>>
+
+        <label for="post_status_box">
+            Post status
+        </label>
+      </div>
+
+      <div>
+        <label for="likes_count_box">
+          Likes count
+        </label>
+
+        <input type="text" id="likes_count_box" name="query_likes_count" value="<%= @the_idea.likes_count %>">
+      </div>
+
+      <button>
+        Update idea
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
